@@ -1,0 +1,18 @@
+﻿@model List<TatilSeyahatSitesi.Models.Siniflar.Blog>
+<div class="box1-left">
+    <h3>Süper Olmayanlar</h3>
+
+    @foreach (var item in Model)
+    {
+        <div class="bot-img">
+         <a href="/Blog/BlogDetay/@item.ID/"><img src="@item.BlogImage" alt="" width="120px" height="74px" /></a>
+        </div>
+        <div class="bot-desc1">
+            <p>@item.Aciklama.Substring(0,70) ... </p>
+        </div>
+        <div class="clear"></div>
+
+    }
+
+</div>
+

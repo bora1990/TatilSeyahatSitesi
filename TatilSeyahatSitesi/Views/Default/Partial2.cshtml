@@ -1,0 +1,17 @@
+﻿@model List<TatilSeyahatSitesi.Models.Siniflar.Blog>
+
+<div class="right">
+  @foreach (var item in Model)
+  {
+        <div class="bot-left">
+            <img src="@item.BlogImage" alt=""  width="276px" height="155px" />
+        </div>
+        <div class="left-text">
+
+            <h4>@item.Baslik</h4>
+            <span class="doller">@item.Tarih.ToString("MMM yyyy")</span>
+            <p>@item.Aciklama.Substring(0, 110) ...</p>
+            <p><a href="/Blog/BlogDetay/@item.ID/"><span class="read">Daha Fazlası İçin >></span></a></p>
+        </div>
+  }
+    </div>

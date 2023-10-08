@@ -1,0 +1,44 @@
+﻿@model TatilSeyahatSitesi.Models.Siniflar.Blog
+@{
+    ViewBag.Title = "BlogGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("BlogGuncelle", "Admin", FormMethod.Post))  //
+{
+    @Html.LabelFor(x => x.ID)
+    <br />
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" ,@readonly="readonly" })
+    <br />
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BlogImage)
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama,10,1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BegeniPuani)
+    <br />
+    <select name="BegeniPuani">
+        @for (int i = 1; i <= 10; i++)
+        {
+            <option value="@i">@i</option>
+        }
+
+    </select>
+    <br />
+    <br />
+    <button class="btn btn-success">Guncelle</button>
+
+
+
+}
+

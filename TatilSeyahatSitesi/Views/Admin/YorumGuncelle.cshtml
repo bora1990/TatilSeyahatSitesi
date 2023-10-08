@@ -1,0 +1,30 @@
+﻿@model TatilSeyahatSitesi.Models.Siniflar.Yorumlar
+@{
+    ViewBag.Title = "YorumGuncelle";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container">
+    <form  method="post">
+        <h2>Yorum Guncelleme Sayfası</h2>
+        @Html.LabelFor(x => x.ID)
+        <br />
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.LabelFor(x => x.KullaniciAdi)
+        @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Mail)
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Yorum)
+        @Html.TextAreaFor(x => x.Yorum, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Blog.Baslik, new { @class = "" })
+        <br />
+        @Html.DropDownListFor(x => x.ID, (List<SelectListItem>)ViewBag.baslik)
+        <br />
+
+        <button class="btn btn-success mb-3 mt-5 ">Guncelle</button>
+    </form>
+</div>

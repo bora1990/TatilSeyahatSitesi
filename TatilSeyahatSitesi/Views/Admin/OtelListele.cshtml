@@ -1,0 +1,36 @@
+﻿
+@model List<TatilSeyahatSitesi.Models.Siniflar.Otel>
+@{
+    ViewBag.Title = "Oteller";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container mt-5">
+
+
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>OtelAdı</th>
+            <th>Otel Açıklama</th>
+            <th>#</th>
+            <th>#</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.OtelAdi</td>
+                <td>@item.OtelAciklama</td>
+                <td><a href="/Admin/OtelSil/@item.ID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Admin/OtelGuncelle/@item.ID" class="btn btn-success">GUNCELLE</a></td>
+            </tr>
+        }
+    </table>
+ 
+
+    <a href="/Admin/OtelEkle/" class="btn btn-dark">Ekle</a>
+           
+</div>

@@ -1,0 +1,29 @@
+﻿
+@model TatilSeyahatSitesi.Models.Siniflar.Otel
+@{
+    ViewBag.Title = "OtelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>OtelEkle</h2>
+
+<br />
+
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.ID)
+    @Html.HiddenFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.OtelAdi)
+    @Html.TextBoxFor(x => x.OtelAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.OtelAciklama)
+    @Html.TextBoxFor(x => x.OtelAciklama, new { @class = "form-control" })
+
+    <br />
+    <p>Hangi Blog İçin Otel Eklemek istiyorsunuz ?</p>
+    @Html.DropDownList("BlogID", ViewBag.blogId as IEnumerable<SelectListItem>, new { @class = "form-control", id = "BlogID" })
+
+    <br /><br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

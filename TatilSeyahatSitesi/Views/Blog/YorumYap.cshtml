@@ -1,0 +1,12 @@
+﻿
+<div class="content-form">
+
+    <form method="post">
+
+        <input type="hidden" id="BlogID" placeholder="" name="BlogID" value="@ViewBag.deger" required />
+        <input type="text" id="KullaniciAdi" placeholder="Kullanici Adi" asp-for="KullaniciAdi" name="KullaniciAdi" required />
+        <input type="text" id="Mail" placeholder="Mail Adresi" name="Mail" required />
+        <textarea id="Yorum" placeholder="Yorum" name="Yorum"></textarea>
+        <input type="submit" value="Gönder" />
+    </form>
+</div>
