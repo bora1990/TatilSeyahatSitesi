@@ -8,21 +8,21 @@ using TatilSeyahatSitesi.Models.Siniflar;
 
 namespace TatilSeyahatSitesi.Controllers
 {
-    
+
     public class AdminController : Controller
     {
         Context context = new Context();
         [Authorize]
         public ActionResult Index()
         {
-             var values= context.Blogs.ToList();
+            var values = context.Blogs.ToList();
             return View(values);
         }
         [HttpGet]
-        public ActionResult YeniBlog() 
+        public ActionResult YeniBlog()
         {
-           
-            return View();     
+
+            return View();
         }
 
         [HttpPost]
@@ -33,31 +33,31 @@ namespace TatilSeyahatSitesi.Controllers
 
             return RedirectToAction("Index");
         }
-        
+
         public ActionResult BlogSil(int id)
         {
             var b = context.Blogs.Find(id);
             context.Blogs.Remove(b);
-            context.SaveChanges();  
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public ActionResult BlogGuncelle(int id)         
+        public ActionResult BlogGuncelle(int id)
         {
-            var blog=context.Blogs.Find(id);
+            var blog = context.Blogs.Find(id);
 
             return View("BlogGuncelle", blog); //blogGuncelle sayfasıyla beraber verileride getir.
-        
+
         }
         [HttpPost]
         public ActionResult BlogGuncelle(Blog blog)
         {
             var ilgiliBlog = context.Blogs.Find(blog.ID);
-            ilgiliBlog.Aciklama=blog.Aciklama;
-            ilgiliBlog.Baslik=blog.Baslik;
-            ilgiliBlog.BegeniPuani=blog.BegeniPuani;
-            ilgiliBlog.Tarih=blog.Tarih;
-            ilgiliBlog.BlogImage=blog.BlogImage;
+            ilgiliBlog.Aciklama = blog.Aciklama;
+            ilgiliBlog.Baslik = blog.Baslik;
+            ilgiliBlog.BegeniPuani = blog.BegeniPuani;
+            ilgiliBlog.Tarih = blog.Tarih;
+            ilgiliBlog.BlogImage = blog.BlogImage;
 
             context.SaveChanges();
 
@@ -67,7 +67,7 @@ namespace TatilSeyahatSitesi.Controllers
 
         public ActionResult Hakkimizda()
         {
-            var value=context.Hakkimizdas.FirstOrDefault(); 
+            var value = context.Hakkimizdas.FirstOrDefault();
 
             return View(value);
         }
@@ -108,28 +108,28 @@ namespace TatilSeyahatSitesi.Controllers
             ilgiliYorum.KullaniciAdi = yorumlar.KullaniciAdi;
             ilgiliYorum.Mail = yorumlar.Mail;
             ilgiliYorum.Yorum = yorumlar.Yorum;
-          
-       
+
+
             context.SaveChanges();
 
-            return RedirectToAction("YorumListesi"); 
+            return RedirectToAction("YorumListesi");
         }
 
         public ActionResult OtelListele()
         {
             var values = context.Otels.ToList();
             return View(values);
-     
+
         }
         public ActionResult OtelEkle()
         {
             List<SelectListItem> blogId = (from x in context.Blogs.ToList()
-                                               select new SelectListItem
-                                               {
-                                                   Text = x.Baslik,
-                                                   Value = x.ID.ToString()
-                                               }).ToList();
-            ViewBag.blogId=blogId;
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Baslik,
+                                               Value = x.ID.ToString()
+                                           }).ToList();
+            ViewBag.blogId = blogId;
 
             return View();
         }
@@ -140,7 +140,7 @@ namespace TatilSeyahatSitesi.Controllers
             context.Otels.Add(otel);
             context.SaveChanges();
 
-            return RedirectToAction("OtelListele","Admin");
+            return RedirectToAction("OtelListele", "Admin");
         }
 
         public ActionResult OtelSil(int id)

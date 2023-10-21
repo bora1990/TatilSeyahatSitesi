@@ -157,6 +157,10 @@
     <Compile Include="Migrations\202310080817279_adding_relation_otel_oteldetay.designer.cs">
       <DependentUpon>202310080817279_adding_relation_otel_oteldetay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310211214066_blog_feature_City.cs" />
+    <Compile Include="Migrations\202310211214066_blog_feature_City.designer.cs">
+      <DependentUpon>202310211214066_blog_feature_City.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\AdresBlog.cs" />
@@ -383,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310080817279_adding_relation_otel_oteldetay.resx">
       <DependentUpon>202310080817279_adding_relation_otel_oteldetay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310211214066_blog_feature_City.resx">
+      <DependentUpon>202310211214066_blog_feature_City.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
